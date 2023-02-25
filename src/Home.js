@@ -2,8 +2,10 @@ import "./App.css";
 import { Box } from "@material-ui/core";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import { Link } from "react-router-dom";
+import { getRandomWord } from "./constants/words";
 
 const Home = () => {
+  console.log("WORD", getRandomWord());
   return (
     <Box display="flex" justifyContent="center" flexDirection="column">
       <p className="title">mini games to play by yourself or with others</p>
