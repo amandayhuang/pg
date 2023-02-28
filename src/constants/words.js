@@ -1,6 +1,6 @@
 // source: https://7esl.com/8-letter-words/
 
-const words = [
+export const words = [
   "Aardvark",
   "Abacuses",
   "Abandons",
@@ -789,7 +789,3 @@ const words = [
   "Workshop",
   "Yourself",
 ];
-
-export const getRandomWord = () => {
-  return words[Math.floor(Math.random() * words.length)].toLowerCase();
-};
