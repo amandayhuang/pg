@@ -15,7 +15,7 @@ export const getRandomWordAndLetters = () => {
   return { word, letters: shuffle(Object.keys(lettersObj)) };
 };
 
-const shuffle = (array) => {
+export const shuffle = (array) => {
   let currentIndex = array.length,
     randomIndex;
 
@@ -32,5 +32,5 @@ const shuffle = (array) => {
     ];
   }
 
-  return array;
+  return array.slice();
 };

@@ -1,7 +1,7 @@
 import "./App.css";
 import { Box, Button, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { getRandomWordAndLetters } from "./utils/words";
+import { getRandomWordAndLetters, shuffle } from "./utils/words";
 import React, { useState, useEffect } from "react";
 
 const Home = () => {
@@ -17,6 +17,10 @@ const Home = () => {
 
   const deleteHandler = () => {
     setGuess(guess.substring(0, guess.length - 1));
+  };
+
+  const shuffleHandler = () => {
+    setLetters(shuffle(letters));
   };
 
   const submitHandler = () => {
@@ -40,15 +44,18 @@ const Home = () => {
     <>
       <Typography>{guess}</Typography>
       <Typography>{result}</Typography>
-      {letters.map((letter) => (
-        <Button
-          onClick={guess.length < 8 ? () => letterHandler(letter) : undefined}
-        >
-          {letter}
-        </Button>
-      ))}
+      <Box displau="flex">
+        {letters.map((letter) => (
+          <Button
+            onClick={guess.length < 8 ? () => letterHandler(letter) : undefined}
+          >
+            {letter}
+          </Button>
+        ))}
+      </Box>
       {guess.length > 0 && <Button onClick={deleteHandler}>Delete</Button>}
       {guess.length === 8 && <Button onClick={submitHandler}>Submit</Button>}
+      {<Button onClick={shuffleHandler}>Shuffle</Button>}
     </>
   );
 };
